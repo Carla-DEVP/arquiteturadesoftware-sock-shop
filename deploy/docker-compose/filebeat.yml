@@ -1,0 +1,11 @@
+filebeat.inputs:
+- type: container
+  paths:
+    - '/var/lib/docker/containers/*/*.log' # Adicione os asteriscos aqui
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: "filebeat-direto-%{+yyyy.MM.dd}"
+
+setup.template.name: "filebeat"
+setup.template.pattern: "filebeat-*"
