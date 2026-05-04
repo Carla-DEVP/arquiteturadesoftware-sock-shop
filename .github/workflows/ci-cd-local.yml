@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Baixar imagem oficial do microservico carts
-        run: docker pull weaveworksdemos/cart:0.4.8
+        run: docker pull weaveworksdemos/cart:latest
 
       - name: Parar container anterior (se existir)
         run: |
@@ -35,4 +35,4 @@ jobs:
           docker rm sockshop-carts || true
 
       - name: Subir container do microservico carts
-        run: docker run -d --name sockshop-carts -p 8080:80 weaveworksdemos/cart:0.4.8
+        run: docker run -d --name sockshop-carts -p 8080:80 weaveworksdemos/cart:latest
