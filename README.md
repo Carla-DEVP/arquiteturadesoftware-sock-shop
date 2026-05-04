@@ -1,31 +1,26 @@
-[![Build Status](https://travis-ci.org/microservices-demo/microservices-demo.svg?branch=master)](https://travis-ci.org/microservices-demo/microservices-demo)
+# Evolução DevOps - Sock Shop
 
-# DEPRECATED: Sock Shop : A Microservice Demo Application
+## 📌 Objetivo do Projeto
+Evolução da arquitetura do projeto open-source Sock Shop (Microservices Demo), com foco na implementação de práticas reais de DevOps: observabilidade, resiliência e automação de entrega.
 
-The application is the user-facing part of an online shop that sells socks. It is intended to aid the demonstration and testing of microservice and cloud native technologies.
+## 🛠️ Tecnologias e Ferramentas Utilizadas
+* *Infraestrutura e Orquestração:* Docker e Docker Compose.
+* *Monitoramento Contínuo:* Prometheus (coleta de métricas) e Grafana (dashboards de CPU, memória, latência e throughput).
+* *Logging Centralizado:* Elastic Stack. Utilização do Filebeat para coleta nos containers, Logstash para estruturação/grok, Elasticsearch para indexação e Kibana para visualização.
+* *Automação (CI/CD):* GitHub Actions automatizando a validação e o deploy contínuo do microserviço carts.
 
-It is built using [Spring Boot](http://projects.spring.io/spring-boot/), [Go kit](http://gokit.io) and [Node.js](https://nodejs.org/) and is packaged in Docker containers.
+## 🚀 Como Executar o Ambiente
+1. Clone este repositório:
+   git clone https://github.com/Carla-DEVP/arquiteturadesoftware-sock-shop.git
+2. Acesse a pasta de deploy do Docker Compose:
+   cd deploy/docker-compose
+3. Suba a infraestrutura completa em background:
+   docker-compose up -d
+4. Acesse a aplicação no navegador via http://localhost.
 
-You can read more about the [application design](./internal-docs/design.md).
+## 📊 Acesso às Ferramentas de Observabilidade
+* *Grafana (Métricas):* Acesse http://localhost:3000. O dashboard consolida a saúde dos microserviços em tempo real.
+* *Kibana (Logs):* Acesse http://localhost:5601. Os logs estão padronizados contendo Timestamp, Serviço, Severidade, IP e Mensagem.
 
-## Deployment Platforms
-
-The [deploy folder](./deploy/) contains scripts and instructions to provision the application onto your favourite platform. 
-
-Please let us know if there is a platform that you would like to see supported.
-
-## Bugs, Feature Requests and Contributing
-
-We'd love to see community contributions. We like to keep it simple and use Github issues to track bugs and feature requests and pull requests to manage contributions. See the [contribution information](.github/CONTRIBUTING.md) for more information.
-
-## Screenshot
-
-![Sock Shop frontend](https://github.com/microservices-demo/microservices-demo.github.io/raw/master/assets/sockshop-frontend.png)
-
-## Visualizing the application
-
-Use [Weave Scope](http://weave.works/products/weave-scope/) or [Weave Cloud](http://cloud.weave.works/) to visualize the application once it's running in the selected [target platform](./deploy/).
-
-![Sock Shop in Weave Scope](https://github.com/microservices-demo/microservices-demo.github.io/raw/master/assets/sockshop-scope.png)
-
-## 
+## ⚙️ Pipeline CI/CD (Atividade Extra)
+O fluxo de Integração e Entrega Contínua está implementado no arquivo .github/workflows/ci-cd-local.yml. A cada novo push na branch master, o GitHub Actions valida a estrutura e atualiza automaticamente o container do microserviço de carrinhos (carts).
