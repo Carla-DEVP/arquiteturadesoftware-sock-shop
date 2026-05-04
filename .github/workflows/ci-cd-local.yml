@@ -1,0 +1,24 @@
+name: CI/CD Arquitetura Sock Shop
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  pipeline:
+    name: Teste e Build de Microsserviço
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Simulação de Testes
+        run: echo "Executando testes unitários no serviço carts..."
+
+      - name: Build da Imagem Docker
+        run: echo "Gerando nova imagem Docker: arquiteturadesoftware-sock-shop/carts:latest"
