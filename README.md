@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/7e5f6b4d-5449-412e-8bc7-d7b1cc6ed288
+
 # Evolução DevOps - Sock Shop
 
 ## 📌 Objetivo do Projeto
